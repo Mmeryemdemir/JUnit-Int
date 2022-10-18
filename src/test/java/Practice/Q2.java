@@ -4,7 +4,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.locators.RelativeLocator;
 
 import java.time.Duration;
 
@@ -58,20 +60,27 @@ public class Q2 {
     }
 
     @Test
-    public void  logoTest(){
+    public void logoTesti(){
         //  Ayrica Relative Locator kullanarak;
-        //      logoTest => BestBuy logosunun gorunutulenip goruntulenmedigini dogrulayin
+        // logoTest => BestBuy logosunun goruntulenip goruntulenmedigini dogrulayin
 
-        Assert.assertTrue(driver.findElement(By.xpath("//img[@class='logo']")).isDisplayed());
+        WebElement helloHeading = driver.findElement(By.xpath("(//div[@class='heading'])[1]"));
+        WebElement bestBuyLogo = driver.findElement(RelativeLocator.with(By.tagName("img")).above(helloHeading));
+
+        Assert.assertTrue(bestBuyLogo.isDisplayed());
     }
 
+
+
     @Test
-    public void linkTest(){
-        //  Ayrica Relative Locator kullanarak;
-        //      mexicoLinkTest => Linkin gorunutulenip goruntulenmedigini dogrulayin
+    public void linkTesti(){
 
+        //Ayrica Relative Locator kullanarak;
+        //mexicoLinkTest => Linkin goruntulenip goruntulenmedigini dogrulayin
 
-        Assert.assertTrue(driver.findElement(By.xpath("//img[@alt='Mexico']")).isDisplayed());
+        WebElement usFlag = driver.findElement(By.xpath("(//img[@alt='United States'])[1]"));
+        WebElement mexicoFlag = driver.findElement(RelativeLocator.with(By.tagName("img")).toRightOf(usFlag));
 
+        Assert.assertTrue(mexicoFlag.isDisplayed());
     }
 }
