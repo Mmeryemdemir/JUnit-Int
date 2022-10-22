@@ -1,2 +1,38 @@
-package ders09_actionsClass;public class C03_DrugAndDrop {
+package ders09_actionsClass;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import utilities.TestBase;
+
+public class C03_DrugAndDrop extends TestBase {
+
+    // Yeni bir class olusturalim: MouseActions2
+
+    @Test
+    public void test01() throws InterruptedException {
+        //1- https://demoqa.com/droppable adresine gidelim
+        driver.get("https://demoqa.com/droppable");
+
+        //2- “Drag me” butonunu tutup “Drop here” kutusunun ustune birakalim
+
+        WebElement taşınacakElement =  driver.findElement(By.xpath("//div[@id='draggable']"));
+       WebElement taşınacakHedefAlan = driver.findElement(By.xpath("(//div[@id='droppable'])[1]"));
+
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(taşınacakElement,taşınacakHedefAlan).perform();
+
+        Thread.sleep(5000);
+
+        //3- “Drop here” yazisi yerine “Dropped!” oldugunu test edin
+
+       WebElement droppedYazıElementi= driver.findElement(By.xpath("//p[text()='Dropped!']"));
+
+        String expectedDroppedYazısı = "Dropped!";
+        String actualDroppedYazısı = droppedYazıElementi.getText();
+        Assert.assertEquals(expectedDroppedYazısı,actualDroppedYazısı);
+
+    }
 }

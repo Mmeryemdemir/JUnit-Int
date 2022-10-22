@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class C05_BasicAuthentication {
+public class C06_BasicAuthentication {
 
 
     WebDriver driver;

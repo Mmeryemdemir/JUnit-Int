@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class C04_HandleAlerts {
+public class C05_HandleAlerts {
 
     /*
       Otomasyon sirasinda karsimiza iki tur alert cikar
