@@ -37,7 +37,7 @@ public class C04_MoveToElement extends TestBase {
         String actualYourListYazısı = yourListYazısı.getText();
 
 
-        Assert.assertEquals(expectedYourLıstYazısı,actualYourListYazısı);
+        Assert.assertTrue(yourListYazısı.isDisplayed());
 
     }
 }
