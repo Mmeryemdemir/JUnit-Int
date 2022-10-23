@@ -27,4 +27,14 @@ public class TestBase {
     public void teardown(){
         driver.close();
     }
+
+
+    public static  void bekle(int beklenecekSaniye){
+
+        try {
+            Thread.sleep(beklenecekSaniye*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

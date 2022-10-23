@@ -39,5 +39,8 @@ public class C04_MoveToElement extends TestBase {
 
         Assert.assertTrue(yourListYazısı.isDisplayed());
 
+        bekle(5);
+
+
     }
 }
