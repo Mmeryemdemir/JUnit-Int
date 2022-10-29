@@ -51,7 +51,7 @@ public class C04_ReadExcel {
 
         //toplam 190 ulke olduğunu test edin
 
-           Assert.assertEquals(ulkelerListesi.size(),190);
+           Assert.assertEquals(190,ulkelerListesi.size());
 
         // en uzun ulke isminin Mikronezya Fedaral Devletleri olduğunu test edin
 
