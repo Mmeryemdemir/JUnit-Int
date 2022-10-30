@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
@@ -68,6 +69,18 @@ public class TestBase {
         File geçiciResim = tss.getScreenshotAs(OutputType.FILE);
 
         // 4- geçici dosyayı hazırladığımız file'a kopyalayalım
+
+        FileUtils.copyFile(geçiciResim,tumSayfaSShot);
+    }
+
+    public void webElementScreenshot(WebElement target) throws IOException {
+
+        LocalDateTime ldt = LocalDateTime.now();
+        DateTimeFormatter dtf= DateTimeFormatter.ofPattern("YYMMddHHmmss");
+
+        File tumSayfaSShot = new File("target/ScreenShot/WebElementScreenshot"+ldt.format(dtf)+".jpeg");
+
+        File geçiciResim = target.getScreenshotAs(OutputType.FILE);
 
         FileUtils.copyFile(geçiciResim,tumSayfaSShot);
     }
